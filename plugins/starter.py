@@ -55,7 +55,7 @@ def process_message(data):
     elif p_bot_image.match(data['text']):
     	global googleapikey
  	image = str(data['text'])
- 	image = re.sub("chimbot[\s]*image[\s]*me", '', image)
+ 	image = re.sub("chimbot[\s]*image[\s]*me[\s]*", '', image)
  	outputs.append([data['channel'], "This functionality is coming soon, you searched for: " + image])   
  	fetcher = urllib2.build_opener()
 	startIndex = str("0")
