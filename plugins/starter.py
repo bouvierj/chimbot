@@ -9,6 +9,8 @@ outputs = []
 attachments = []
 typing_sleep = 0
 
+googleapikey = None
+
 greetings = ['Hi friend!', 'Hello there.', 'Howdy!', 'Wazzzup!!!', 'Hi!', 'Hey.']
 help_text = "{}\n{}\n{}\n{}\n{}\n{}".format(
     "I will respond to the following messages: ",
