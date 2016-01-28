@@ -21,6 +21,7 @@ p_bot_hi = re.compile("chimbot[\s]*hi")
 p_bot_joke = re.compile("chimbot[\s]*joke")
 p_bot_attach = re.compile("chimbot[\s]*attachment")
 p_bot_help = re.compile("chimbot[\s]*help")
+p_bot_image = re.compile("chimbot[\s]*image[\s]*me")
 
 def process_message(data):
     logging.debug("process_message:data: {}".format(data))
@@ -40,7 +41,10 @@ def process_message(data):
     elif p_bot_help.match(data['text']):
         outputs.append([data['channel'], "{}".format(help_text)])
     
-    elif data['text'].startswith("pybot"):
+    elif p_bot_image.match(data['text']):
+ 	outputs.append([data['channel'], "This functionality is coming soon"])    
+    
+    elif data['text'].startswith("chimbot"):
         outputs.append([data['channel'], "I'm sorry, I don't know how to: `{}`".format(data['text'])])
 
     elif data['channel'].startswith("D"):  # direct message channel to the bot
