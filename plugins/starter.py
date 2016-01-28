@@ -74,7 +74,9 @@ def process_message(data):
     		x = geturl.fetcher.open(searchUrl)
 		x = str(x)
     		outputs.append([data['channel'], x])
-    	
+    	except urllib2.URLError as e:
+    		e = str(e)
+    		outputs.append([data['channel'], e])
 
     
     elif data['text'].startswith("chimbot"):
