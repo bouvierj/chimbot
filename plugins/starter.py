@@ -66,7 +66,7 @@ def process_message(data):
  	outputs.append([data['channel'], "6"])
 	startIndex = str("0")
 	outputs.append([data['channel'], "7"])
-	searchUrl = "https://www.googleapis.com/customsearch/v1?key=" + googleapikey + "&cx=009488714636722478744:yz25mu3sy4y" + "&q=" + image + "&count=1" + "&searchtype=image"
+	searchUrl = "https://www.googleapis.com/customsearch/v1?key=" + googleapikey + "&cx=009488714636722478744:yz25mu3sy4y" + "&q=" + image + "&count=1" + "&searchType=image"
 	outputs.append([data['channel'], "8"])
 	outputs.append([data['channel'], searchUrl])
 	outputs.append([data['channel'], "9"])
