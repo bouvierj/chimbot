@@ -66,7 +66,7 @@ def process_message(data):
 		deserialized_output = json.load(f)
 		outputs.append([data['channel'], deserialized_output])
 	except urllib2.URLError as e:
-    		print e
+    		outputs.append([data['channel'],e])
 
     
     elif data['text'].startswith("chimbot"):
