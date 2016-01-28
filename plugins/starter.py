@@ -63,10 +63,11 @@ def process_message(data):
 	f = None
 	try:
 		f = fetcher.open(searchUrl)
+		deserialized_output = json.load(f)
+		outputs.append([data['channel'], deserialized_output])
 	except urllib2.URLError as e:
     		print e
-	deserialized_output = json.load(f)
-	outputs.append([data['channel'], deserialized_output])
+
     
     elif data['text'].startswith("chimbot"):
         outputs.append([data['channel'], "I'm sorry, I don't know how to: `{}`".format(data['text'])])
