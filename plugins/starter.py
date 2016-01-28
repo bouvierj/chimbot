@@ -42,7 +42,8 @@ def process_message(data):
         outputs.append([data['channel'], "{}".format(help_text)])
     
     elif p_bot_image.match(data['text']):
- 	outputs.append([data['channel'], "This functionality is coming soon"])    
+ 	image = (data['text'])
+ 	outputs.append([data['channel'], "This functionality is coming soon" 'image'])    
     
     elif data['text'].startswith("chimbot"):
         outputs.append([data['channel'], "I'm sorry, I don't know how to: `{}`".format(data['text'])])
