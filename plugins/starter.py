@@ -48,7 +48,7 @@ def process_message(data):
         outputs.append([data['channel'], "I'm sorry, I don't know how to: `{}`".format(data['text'])])
 
     elif data['channel'].startswith("D"):  # direct message channel to the bot
-        outputs.append([data['channel'], "Hello, I'm the Chimbot.\n{}".format(help_text)])
+        outputs.append([data['channel'], "Hello, I'm the Chimbot, friend.\n{}".format(help_text)])
 
 def process_mention(data):
     logging.debug("process_mention:data: {}".format(data))
