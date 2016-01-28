@@ -76,7 +76,7 @@ def process_message(data):
 		outputs.append([data['channel'], "11"])
 		f = fetcher.open(searchUrl)
 		outputs.append([data['channel'], "12"])
-		deserialized_output = json.load(f)
+		deserialized_output = str(json.load(f))
 		outputs.append([data['channel'], "13"])
 		outputs.append([data['channel'], deserialized_output])
 		outputs.append([data['channel'], "14"])
