@@ -2,6 +2,8 @@ import time
 import re
 import random
 import logging
+import urllib2
+import simplejson
 crontable = []
 outputs = []
 attachments = []
@@ -44,7 +46,13 @@ def process_message(data):
     elif p_bot_image.match(data['text']):
  	image = str(data['text'])
  	image = re.sub("chimbot[\s]*image[\s]*me", '', image)
- 	outputs.append([data['channel'], "This functionality is coming soon, you searched for: " + image])    
+ 	outputs.append([data['channel'], "This functionality is coming soon, you searched for: " + image])   
+ 	fetcher = urllib2.build_opener()
+	startIndex = 0
+	searchUrl = "http://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=" + image + "&start=" + startIndex
+	f = fetcher.open(searchUrl)
+	deserialized_output = simplejson.load(f)
+	outputs.append([data['channel'], deserialized_output)
     
     elif data['text'].startswith("chimbot"):
         outputs.append([data['channel'], "I'm sorry, I don't know how to: `{}`".format(data['text'])])
