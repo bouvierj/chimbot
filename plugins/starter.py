@@ -71,7 +71,7 @@ def process_message(data):
     		outputs.append([data['channel'], e])
     		
     	try:
-    		x = geturl.fetcher.open(searchUrl)
+    		x = geturl(fetcher.open(searchUrl))
 		x = str(x)
     		outputs.append([data['channel'], x])
     	except urllib2.URLError as e:
