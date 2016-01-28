@@ -35,6 +35,7 @@ def process_message(data):
         outputs.append([data['channel'], "{}".format(random.choice(greetings))])
     
     elif p_bot_key.match(data['text']):
+    	global googleapikey
     	googleapikey = str(data['text'])
  	googleapikey = re.sub("chimbot[\s]*google[\s]*API[\s]*key", '', googleapikey)
  	outputs.append([data['channel'], "You input: " + googleapikey])
@@ -52,6 +53,7 @@ def process_message(data):
         outputs.append([data['channel'], "{}".format(help_text)])
     
     elif p_bot_image.match(data['text']):
+    	global googleapikey
  	image = str(data['text'])
  	image = re.sub("chimbot[\s]*image[\s]*me", '', image)
  	outputs.append([data['channel'], "This functionality is coming soon, you searched for: " + image])   
