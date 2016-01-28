@@ -60,6 +60,7 @@ def process_message(data):
  	fetcher = urllib2.build_opener()
 	startIndex = str("0")
 	searchUrl = "https://www.googleapis.com/customsearch/v1?key=" + googleapikey + "&cx=009488714636722478744:yz25mu3sy4y" + "&q=" + image + "&count=1" + "&searchtype=image"
+	f = None
 	try:
 		f = fetcher.open(searchUrl)
 	except urllib2.URLError as e:
