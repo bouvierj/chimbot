@@ -77,8 +77,6 @@ def process_message(data):
     	except urllib2.URLError as e:
     		e = str(e)
     		outputs.append([data['channel'], e])
-
-    
     elif data['text'].startswith("chimbot"):
         outputs.append([data['channel'], "I'm sorry, I don't know how to: `{}`".format(data['text'])])
 
