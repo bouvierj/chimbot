@@ -65,7 +65,7 @@ def process_message(data):
 		f = fetcher.open(searchUrl)
 		deserialized_output = json.load(f)
 		outputs.append([data['channel'], deserialized_output])
-	except urllib2.URLError as e:
+	except urllib2.URLError as str e:
     		outputs.append([data['channel'],e])
 
     
