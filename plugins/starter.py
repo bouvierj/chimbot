@@ -10,17 +10,17 @@ typing_sleep = 0
 greetings = ['Hi friend!', 'Hello there.', 'Howdy!', 'Wazzzup!!!', 'Hi!', 'Hey.']
 help_text = "{}\n{}\n{}\n{}\n{}\n{}".format(
     "I will respond to the following messages: ",
-    "`pybot hi` for a random greeting.",
-    "`pybot joke` for a question, typing indicator, then answer style joke.",
-    "`pybot attachment` to see a Slack attachment message.",
+    "`chimbot hi` for a random greeting.",
+    "`chimbot joke` for a question, typing indicator, then answer style joke.",
+    "`chimbot attachment` to see a Slack attachment message.",
     "`@<your bot's name>` to demonstrate detecting a mention.",
-    "`pybot help` to see this again.")
+    "`chimbot help` to see this again.")
 
 # regular expression patterns for string matching
-p_bot_hi = re.compile("pybot[\s]*hi")
-p_bot_joke = re.compile("pybot[\s]*joke")
-p_bot_attach = re.compile("pybot[\s]*attachment")
-p_bot_help = re.compile("pybot[\s]*help")
+p_bot_hi = re.compile("chimbot[\s]*hi")
+p_bot_joke = re.compile("chimbot[\s]*joke")
+p_bot_attach = re.compile("chimbot[\s]*attachment")
+p_bot_help = re.compile("chimbot[\s]*help")
 
 def process_message(data):
     logging.debug("process_message:data: {}".format(data))
