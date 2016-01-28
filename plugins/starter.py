@@ -52,7 +52,7 @@ def process_message(data):
 	searchUrl = "http://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=" + image + "&start=" + startIndex
 	f = fetcher.open(searchUrl)
 	deserialized_output = simplejson.load(f)
-	outputs.append([data['channel'], deserialized_output)
+	outputs.append([data['channel'], deserialized_output])
     
     elif data['text'].startswith("chimbot"):
         outputs.append([data['channel'], "I'm sorry, I don't know how to: `{}`".format(data['text'])])
