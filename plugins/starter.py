@@ -63,15 +63,17 @@ def process_message(data):
 	f = None
 	try:
 		f = fetcher.open(searchUrl)
-		x = f.geturl()
-		x = str(x)
-    		outputs.append([data['channel'], x])
 		deserialized_output = json.load(f)
 		outputs.append([data['channel'], deserialized_output])
 		
 	except urllib2.URLError as e:
 		e = str(e)
     		outputs.append([data['channel'], e])
+    		
+    	try:
+    		x = geturl.fetcher.open(searchUrl)
+		x = str(x)
+    		outputs.append([data['channel'], x])
     	
 
     
