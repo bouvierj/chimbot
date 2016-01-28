@@ -48,7 +48,7 @@ def process_message(data):
  	image = re.sub("chimbot[\s]*image[\s]*me", '', image)
  	outputs.append([data['channel'], "This functionality is coming soon, you searched for: " + image])   
  	fetcher = urllib2.build_opener()
-	startIndex = 0
+	startIndex = str("0")
 	searchUrl = "http://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=" + image + "&start=" + startIndex
 	f = fetcher.open(searchUrl)
 	deserialized_output = json.load(f)
