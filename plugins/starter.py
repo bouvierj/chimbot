@@ -24,12 +24,17 @@ p_bot_joke = re.compile("chimbot[\s]*joke")
 p_bot_attach = re.compile("chimbot[\s]*attachment")
 p_bot_help = re.compile("chimbot[\s]*help")
 p_bot_image = re.compile("chimbot[\s]*image[\s]*me")
+p_bot_key = re.compile("chimbot[\s]*google[\s]*API[\s]*key")
 
 def process_message(data):
     logging.debug("process_message:data: {}".format(data))
 
     if p_bot_hi.match(data['text']):
         outputs.append([data['channel'], "{}".format(random.choice(greetings))])
+    
+    elif p_bot_key.match(data['test']):
+    	googleapikey = str(data['text'])
+ 	googleapikey = re.sub("chimbot[\s]*google[\s]*API[\s]*key", '', googleapikey)
 
     elif p_bot_joke.match(data['text']):
         outputs.append([data['channel'], "Why did the python cross the road?"])
@@ -49,7 +54,7 @@ def process_message(data):
  	outputs.append([data['channel'], "This functionality is coming soon, you searched for: " + image])   
  	fetcher = urllib2.build_opener()
 	startIndex = str("0")
-	searchUrl = "https://www.googleapis.com/customsearch/v1?q=" + image + "&start=" + startIndex + "&count=1" + "&searchtype=image"
+	searchUrl = "https://www.googleapis.com/customsearch/v1?key=" + googleapikey + "?q=" + image + "&start=" + startIndex + "&count=1" + "&searchtype=image"
 	f = fetcher.open(searchUrl)
 	deserialized_output = json.load(f)
 	outputs.append([data['channel'], deserialized_output])
