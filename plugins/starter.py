@@ -32,7 +32,7 @@ def process_message(data):
     if p_bot_hi.match(data['text']):
         outputs.append([data['channel'], "{}".format(random.choice(greetings))])
     
-    elif p_bot_key.match(data['test']):
+    elif p_bot_key.match(data['text']):
     	googleapikey = str(data['text'])
  	googleapikey = re.sub("chimbot[\s]*google[\s]*API[\s]*key", '', googleapikey)
  	outputs.append([data['channel'], "You input: " + googleapikey])
