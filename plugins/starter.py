@@ -76,9 +76,10 @@ def process_message(data):
 		outputs.append([data['channel'], "11"])
 		f = fetcher.open(searchUrl)
 		outputs.append([data['channel'], "12"])
-		deserialized_output = str(json.load(f))
+		deserialized_output = json.load(f)
 		outputs.append([data['channel'], "13"])
-		outputs.append([data['channel'], deserialized_output])
+		Links = str(deserialized_output['items'][0]['link'])
+		outputs.append([data['channel'], links])
 		outputs.append([data['channel'], "14"])
 		
 	except urllib2.URLError as e:
