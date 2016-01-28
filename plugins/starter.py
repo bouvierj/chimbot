@@ -53,42 +53,24 @@ def process_message(data):
         outputs.append([data['channel'], "{}".format(help_text)])
     
     elif p_bot_image.match(data['text']):
-    	outputs.append([data['channel'], "1"])
     	global googleapikey
-    	outputs.append([data['channel'], "2"])
  	image = str(data['text'])
- 	outputs.append([data['channel'], "3"])
  	image = re.sub("chimbot[\s]*image[\s]*me[\s]*", '', image)
- 	outputs.append([data['channel'], "4"])
  	outputs.append([data['channel'], "This functionality is coming soon, you searched for: " + image])
- 	outputs.append([data['channel'], "5"])
  	fetcher = urllib2.build_opener()
- 	outputs.append([data['channel'], "6"])
 	startIndex = str("0")
-	outputs.append([data['channel'], "7"])
 	searchUrl = "https://www.googleapis.com/customsearch/v1?key=" + googleapikey + "&cx=009488714636722478744:yz25mu3sy4y" + "&q=" + image + "&count=1" + "&searchType=image"
-	outputs.append([data['channel'], "8"])
 	outputs.append([data['channel'], searchUrl])
-	outputs.append([data['channel'], "9"])
 	f = None
-	outputs.append([data['channel'], "10"])
 	try:
-		outputs.append([data['channel'], "11"])
 		f = fetcher.open(searchUrl)
-		outputs.append([data['channel'], "12"])
 		deserialized_output = json.load(f)
-		outputs.append([data['channel'], "13"])
 		links = str(deserialized_output['items'][0]['link'])
 		outputs.append([data['channel'], links])
-		outputs.append([data['channel'], "14"])
 		
 	except urllib2.URLError as e:
-		outputs.append([data['channel'], "e1"])
 		e = str(e)
-		outputs.append([data['channel'], "e2"])
     		outputs.append([data['channel'], e])
-    		outputs.append([data['channel'], "e3"])
-   	outputs.append([data['channel'], "15"])
     elif data['text'].startswith("chimbot"):
         outputs.append([data['channel'], "I'm sorry, I don't know how to: `{}`".format(data['text'])])
 
