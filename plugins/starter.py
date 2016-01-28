@@ -53,10 +53,15 @@ def process_message(data):
         outputs.append([data['channel'], "{}".format(help_text)])
     
     elif p_bot_image.match(data['text']):
+    	outputs.append([data['channel'], "1"])
     	global googleapikey
+    	outputs.append([data['channel'], "2"])
  	image = str(data['text'])
+ 	outputs.append([data['channel'], "3"])
  	image = re.sub("chimbot[\s]*image[\s]*me[\s]*", '', image)
- 	outputs.append([data['channel'], "This functionality is coming soon, you searched for: " + image])   
+ 	outputs.append([data['channel'], "4"])
+ 	outputs.append([data['channel'], "This functionality is coming soon, you searched for: " + image])
+ 	outputs.append([data['channel'], "5"])
  	fetcher = urllib2.build_opener()
 	startIndex = str("0")
 	searchUrl = "https://www.googleapis.com/customsearch/v1?key=" + googleapikey + "&cx=009488714636722478744:yz25mu3sy4y" + "&q=" + image + "&count=1" + "&searchtype=image"
