@@ -43,7 +43,7 @@ def process_message(data):
     
     elif p_bot_image.match(data['text']):
  	image = str(data['text'])
- 	re.sub("chimbot[\s]*image[\s]*me", '', image)
+ 	image = re.sub("chimbot[\s]*image[\s]*me", '', image)
  	outputs.append([data['channel'], image])    
     
     elif data['text'].startswith("chimbot"):
