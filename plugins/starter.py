@@ -3,7 +3,7 @@ import re
 import random
 import logging
 import urllib2
-import simplejson
+import json
 crontable = []
 outputs = []
 attachments = []
@@ -51,7 +51,7 @@ def process_message(data):
 	startIndex = 0
 	searchUrl = "http://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=" + image + "&start=" + startIndex
 	f = fetcher.open(searchUrl)
-	deserialized_output = simplejson.load(f)
+	deserialized_output = json.load(f)
 	outputs.append([data['channel'], deserialized_output])
     
     elif data['text'].startswith("chimbot"):
