@@ -35,6 +35,7 @@ def process_message(data):
     elif p_bot_key.match(data['test']):
     	googleapikey = str(data['text'])
  	googleapikey = re.sub("chimbot[\s]*google[\s]*API[\s]*key", '', googleapikey)
+ 	outputs.append([data['channel'], "You input: " + googleapikey])
 
     elif p_bot_joke.match(data['text']):
         outputs.append([data['channel'], "Why did the python cross the road?"])
