@@ -49,7 +49,7 @@ def process_message(data):
  	outputs.append([data['channel'], "This functionality is coming soon, you searched for: " + image])   
  	fetcher = urllib2.build_opener()
 	startIndex = str("0")
-	searchUrl = "http://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=" + image + "&start=" + startIndex
+	searchUrl = "https://www.googleapis.com/customsearch/v1?q=" + image + "&start=" + startIndex + "&count=1" + "&searchtype=image"
 	f = fetcher.open(searchUrl)
 	deserialized_output = json.load(f)
 	outputs.append([data['channel'], deserialized_output])
