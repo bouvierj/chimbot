@@ -60,6 +60,7 @@ def process_message(data):
  	fetcher = urllib2.build_opener()
 	startIndex = str("0")
 	searchUrl = "https://www.googleapis.com/customsearch/v1?key=" + googleapikey + "&cx=009488714636722478744:yz25mu3sy4y" + "&q=" + image + "&count=1" + "&searchtype=image"
+	outputs.append([data['channel'], searchUrl])
 	f = None
 	try:
 		f = fetcher.open(searchUrl)
@@ -69,14 +70,7 @@ def process_message(data):
 	except urllib2.URLError as e:
 		e = str(e)
     		outputs.append([data['channel'], e])
-    		
-    	try:
-    		x = geturl(fetcher.open(searchUrl))
-		x = str(x)
-    		outputs.append([data['channel'], x])
-    	except urllib2.URLError as e:
-    		e = str(e)
-    		outputs.append([data['channel'], e])
+   
     elif data['text'].startswith("chimbot"):
         outputs.append([data['channel'], "I'm sorry, I don't know how to: `{}`".format(data['text'])])
 
