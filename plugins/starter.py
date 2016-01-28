@@ -78,7 +78,7 @@ def process_message(data):
 		outputs.append([data['channel'], "12"])
 		deserialized_output = json.load(f)
 		outputs.append([data['channel'], "13"])
-		Links = str(deserialized_output['items'][0]['link'])
+		links = str(deserialized_output['items'][0]['link'])
 		outputs.append([data['channel'], links])
 		outputs.append([data['channel'], "14"])
 		
