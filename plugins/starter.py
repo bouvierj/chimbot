@@ -62,7 +62,7 @@ def process_message(data):
 	searchUrl = "https://www.googleapis.com/customsearch/v1?key=" + googleapikey + "&cx=009488714636722478744:yz25mu3sy4y" + "&q=" + image + "&start=" + startIndex + "&count=1" + "&searchtype=image"
 	try:
 		f = fetcher.open(searchUrl)
-	excepturllib2.URLError as e:
+	except urllib2.URLError as e:
     		log(e.reason)
 	deserialized_output = json.load(f)
 	outputs.append([data['channel'], deserialized_output])
