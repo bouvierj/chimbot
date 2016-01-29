@@ -63,9 +63,10 @@ def process_message(data):
 	searchUrl = "https://www.googleapis.com/customsearch/v1?" + urllib.urlencode([("key", googleapikey), ("cx", "009488714636722478744:yz25mu3sy4y"), ("q", image), ("count", "1"), ("searchType", "image")])
 	f = None
 	try:
+		rand = random.randint(0,9)
 		f = fetcher.open(searchUrl)
 		deserialized_output = json.load(f)
-		links = str(deserialized_output['items'][0]['link'])
+		links = str(deserialized_output['items'][rand]['link'])
 		outputs.append([data['channel'], links])
 		
 	except urllib2.URLError as e:
