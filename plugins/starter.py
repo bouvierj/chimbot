@@ -13,14 +13,14 @@ typing_sleep = 0
 googleapikey = None
 
 greetings = ['Hi friend!', 'Hello there.', 'Howdy!', 'Wazzzup!!!', 'Hi!', 'Hey.']
-help_text = "{}\n{}\n{}\n{}\n{}\n{}".format(
+help_text = "{}\n{}\n{}\n{}\n{}\n{}\n{}".format(
     "I will respond to the following messages: ",
     "`chimbot hi` for a random greeting.",
     "`chimbot joke` for a question, typing indicator, then answer style joke.",
     "`chimbot attachment` to see a Slack attachment message.",
     "`@<your bot's name>` to demonstrate detecting a mention.",
-    "`chimbot help` to see this again.",
-    "'chimbot image me <something>' to pop up a random image for your query.")
+    "'chimbot image me <something>' to pop up a random image for your query.",
+    "`chimbot help` to see this again.")
 
 # regular expression patterns for string matching
 p_bot_hi = re.compile("chimbot[\s]*hi", re.I)
