@@ -19,7 +19,7 @@ help_text = "{}\n{}\n{}\n{}\n{}\n{}\n{}".format(
     "`chimbot joke` for a question, typing indicator, then answer style joke.",
     "`chimbot attachment` to see a Slack attachment message.",
     "`@<your bot's name>` to demonstrate detecting a mention.",
-    "'chimbot image me <something>' to pop up a random image for your query.",
+    "`chimbot image me <something>` to pop up a random image for your query.",
     "`chimbot help` to see this again.")
 
 # regular expression patterns for string matching
