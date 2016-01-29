@@ -57,10 +57,9 @@ def process_message(data):
     	global googleapikey
  	image = str(data['text'])
  	image = re.sub("chimbot[\s]*image[\s]*me[\s]*", '', image)
- 	image = urllib.urlencode(image)
  	fetcher = urllib2.build_opener()
 	startIndex = str("0")
-	searchUrl = "https://www.googleapis.com/customsearch/v1?key=" + googleapikey + "&cx=009488714636722478744:yz25mu3sy4y" + "&q=" + image + "&count=1" + "&searchType=image"
+	searchUrl = "https://www.googleapis.com/customsearch/v1?" + urllib.urlencode([("key", googleapikey), ("cx", "009488714636722478744:yz25mu3sy4y"), ("q", image), ("count", "1"), ("searchType", "image")])
 	f = None
 	try:
 		f = fetcher.open(searchUrl)
