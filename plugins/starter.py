@@ -39,7 +39,7 @@ def process_message(data):
     elif p_bot_key.match(data['text']):
     	global googleapikey
     	googleapikey = str(data['text'])
- 	googleapikey = re.sub("chimbot[\s]*google[\s]*API[\s]*key[\s]*", '', googleapikey)
+ 	googleapikey = re.sub("C(?i)himbot[\s]*google[\s]*API[\s]*key[\s]*", '', googleapikey)
  	outputs.append([data['channel'], "You input: " + googleapikey])
 
     elif p_bot_joke.match(data['text']):
@@ -57,7 +57,7 @@ def process_message(data):
     elif p_bot_image.match(data['text']):
     	global googleapikey
  	image = str(data['text'])
- 	image = re.sub("chimbot[\s]*image[\s]*me[\s]*", '', image)
+ 	image = re.sub("C(?i)himbot[\s]*image[\s]*me[\s]*", '', image)
  	fetcher = urllib2.build_opener()
 	startIndex = str("0")
 	searchUrl = "https://www.googleapis.com/customsearch/v1?" + urllib.urlencode([("key", googleapikey), ("cx", "009488714636722478744:yz25mu3sy4y"), ("q", image), ("count", "1"), ("searchType", "image")])
