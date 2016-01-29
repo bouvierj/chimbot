@@ -61,7 +61,7 @@ def process_message(data):
     	if cts > 0:
     		outputs.append([data['channel'], "White stone, success!"])
     	else:
-    		outputs.append(data['channel'], "Black stone, failure!"])
+    		outputs.append([data['channel'], "Black stone, failure!"])
     
     elif p_bot_image.match(data['text']):
     	global googleapikey
