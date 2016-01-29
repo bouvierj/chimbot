@@ -56,7 +56,7 @@ def process_message(data):
     elif p_bot_help.match(data['text']):
         outputs.append([data['channel'], "{}".format(help_text)])
         
-    elif p_bot_cts.match(data['text]):
+    elif p_bot_cts.match(data['text']):
     	cts = random.randint(0,4)
     	if cts > 0:
     		outputs.append([data['channel'], "White stone, success!"])
