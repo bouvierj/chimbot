@@ -13,13 +13,14 @@ typing_sleep = 0
 googleapikey = None
 
 greetings = ['Hi friend!', 'Hello there.', 'Howdy!', 'Wazzzup!!!', 'Hi!', 'Hey.']
-help_text = "{}\n{}\n{}\n{}\n{}\n{}\n{}".format(
+help_text = "{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}".format(
     "I will respond to the following messages: ",
     "`chimbot hi` for a random greeting.",
     "`chimbot joke` for a question, typing indicator, then answer style joke.",
     "`chimbot attachment` to see a Slack attachment message.",
     "`@<your bot's name>` to demonstrate detecting a mention.",
     "`chimbot image me <something>` to pop up a random image for your query.",
+    "`chimbot call the soul` to get a random CtS draw.",
     "`chimbot help` to see this again.")
 
 # regular expression patterns for string matching
@@ -29,6 +30,7 @@ p_bot_attach = re.compile("chimbot[\s]*attachment", re.I)
 p_bot_help = re.compile("chimbot[\s]*help", re.I)
 p_bot_image = re.compile("chimbot[\s]*image[\s]*me", re.I)
 p_bot_key = re.compile("chimbot[\s]*google[\s]*API[\s]*key", re.I)
+p_bot_cts = re.compile("chimbot[\s]*call[\s]*the[\s]*soul", re.I)
 
 def process_message(data):
     logging.debug("process_message:data: {}".format(data))
@@ -53,6 +55,13 @@ def process_message(data):
 
     elif p_bot_help.match(data['text']):
         outputs.append([data['channel'], "{}".format(help_text)])
+        
+    elif p_bot_cts.match(data['text]):
+    	cts = random.randint(0,4)
+    	if cts > 0:
+    		outputs.append([data['channel'], "White stone, success!"])
+    	else:
+    		outputs.append(data['channel'], "Black stone, failure!"])
     
     elif p_bot_image.match(data['text']):
     	global googleapikey
