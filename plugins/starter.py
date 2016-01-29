@@ -19,15 +19,16 @@ help_text = "{}\n{}\n{}\n{}\n{}\n{}".format(
     "`chimbot joke` for a question, typing indicator, then answer style joke.",
     "`chimbot attachment` to see a Slack attachment message.",
     "`@<your bot's name>` to demonstrate detecting a mention.",
-    "`chimbot help` to see this again.")
+    "`chimbot help` to see this again.",
+    "'chimbot image me <something>' to pop up a random image for your query.")
 
 # regular expression patterns for string matching
-p_bot_hi = re.compile("chimbot[\s]*hi")
-p_bot_joke = re.compile("chimbot[\s]*joke")
-p_bot_attach = re.compile("chimbot[\s]*attachment")
-p_bot_help = re.compile("chimbot[\s]*help")
-p_bot_image = re.compile("chimbot[\s]*image[\s]*me")
-p_bot_key = re.compile("chimbot[\s]*google[\s]*API[\s]*key")
+p_bot_hi = re.compile("chimbot[\s]*hi", re.I)
+p_bot_joke = re.compile("chimbot[\s]*joke", re.I)
+p_bot_attach = re.compile("chimbot[\s]*attachment", re.I)
+p_bot_help = re.compile("chimbot[\s]*help", re.I)
+p_bot_image = re.compile("chimbot[\s]*image[\s]*me", re.I)
+p_bot_key = re.compile("chimbot[\s]*google[\s]*API[\s]*key", re.I)
 
 def process_message(data):
     logging.debug("process_message:data: {}".format(data))
