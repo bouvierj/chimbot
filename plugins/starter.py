@@ -47,7 +47,7 @@ def process_message(data):
 
     elif p_bot_cthulhu.match(data['text']):
     	resist = random.randint(0,1)
-    	if resist = 0:
+    	if resist == 0:
     		outputs.append([data['channel'], "Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn."])
     		outputs.append([data['channel'], "__typing__", 1])
     		outputs.append([data['channel'], "Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn."])
