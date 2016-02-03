@@ -46,13 +46,17 @@ def process_message(data):
  	outputs.append([data['channel'], "You input: " + googleapikey])
 
     elif p_bot_cthulhu.match(data['text']):
-    	outputs.append([data['channel'], "Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn."])
-    	outputs.append([data['channel'], "__typing__", 1])
-    	outputs.append([data['channel'], "Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn."])
-    	outputs.append([data['channel'], "__typing__", 1])
-    	outputs.append([data['channel'], "Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn."])
-    	outputs.append([data['channel'], "__typing__", 1])
-    	outputs.append([data['channel'], ":cthulhu: CTHULHU AWAKENS! :cthulhu:"])
+    	resist = random.randint(0,1)
+    	if resist = 0:
+    		outputs.append([data['channel'], "Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn."])
+    		outputs.append([data['channel'], "__typing__", 1])
+    		outputs.append([data['channel'], "Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn."])
+    		outputs.append([data['channel'], "__typing__", 1])
+    		outputs.append([data['channel'], "Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn."])
+    		outputs.append([data['channel'], "__typing__", 1])
+    		outputs.append([data['channel'], ":cthulhu: CTHULHU AWAKENS! :cthulhu:"])
+    	else:
+    		outputs.append([data['channel'], "Resist Magic!"])
     
     elif p_bot_joke.match(data['text']):
         outputs.append([data['channel'], "Why did the python cross the road?"])
