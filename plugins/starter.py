@@ -46,7 +46,13 @@ def process_message(data):
  	outputs.append([data['channel'], "You input: " + googleapikey])
 
     elif p_bot_cthulhu.match(data['text']):
-    	outputs.append([data['channel'], "This feature is coming soon, praise the Old Ones."])
+    	outputs.append([data['channel'], "Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn."])
+    	outputs.append([data['channel'], "__typing__", 1])
+    	outputs.append([data['channel'], "Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn."])
+    	outputs.append([data['channel'], "__typing__", 1])
+    	outputs.append([data['channel'], "Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn."])
+    	outputs.append([data['channel'], "__typing__", 1])
+    	outputs.append([data['channel'], ":cthulhu: CTHULHU AWAKENS! :cthulhu:"])
     
     elif p_bot_joke.match(data['text']):
         outputs.append([data['channel'], "Why did the python cross the road?"])
