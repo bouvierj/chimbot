@@ -31,6 +31,7 @@ p_bot_help = re.compile("chimbot[\s]*help", re.I)
 p_bot_image = re.compile("chimbot[\s]*image[\s]*me", re.I)
 p_bot_key = re.compile("chimbot[\s]*google[\s]*API[\s]*key", re.I)
 p_bot_cts = re.compile("chimbot[\s]*call[\s]*the[\s]*soul", re.I)
+p_bot_cthulhu = re.compile("chimbot[\s]*summon[\s]*cthulhu", re.I)
 
 def process_message(data):
     logging.debug("process_message:data: {}".format(data))
@@ -44,6 +45,9 @@ def process_message(data):
  	googleapikey = re.sub("C(?i)himbot[\s]*google[\s]*API[\s]*key[\s]*", '', googleapikey)
  	outputs.append([data['channel'], "You input: " + googleapikey])
 
+    elif p_bot_cthulhu.match(data['text']):
+    	outputs.append([data['channel'], "This feature is coming soon, praise the Old Ones."])
+    
     elif p_bot_joke.match(data['text']):
         outputs.append([data['channel'], "Why did the python cross the road?"])
         outputs.append([data['channel'], "__typing__", 5])
