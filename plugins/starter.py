@@ -81,7 +81,7 @@ def process_message(data):
     elif p_bot_die.match(data['text']):
     	numdie = 1
     	dietype = -1
-    	rollinfo = str(data['text])
+    	rollinfo = str(data['text'])
     	rollinfo = re.sub("C(?i)himbot[\s]*roll[\s]*me[\s]*", '', rollinfo)
     	outputs.append([data['channel'], "You input: " + rollinfo])
     	
