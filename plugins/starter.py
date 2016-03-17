@@ -32,6 +32,7 @@ p_bot_image = re.compile("chimbot[\s]*image[\s]*me", re.I)
 p_bot_key = re.compile("chimbot[\s]*google[\s]*API[\s]*key", re.I)
 p_bot_cts = re.compile("chimbot[\s]*call[\s]*the[\s]*soul", re.I)
 p_bot_cthulhu = re.compile("chimbot[\s]*summon[\s]*cthulhu", re.I)
+p_bot_die = re.compile("chimbot[\s]*roll[\s]*me", re.I)
 
 def process_message(data):
     logging.debug("process_message:data: {}".format(data))
@@ -76,6 +77,14 @@ def process_message(data):
     		outputs.append([data['channel'], "White stone, success!"])
     	else:
     		outputs.append([data['channel'], "Black stone, failure!"])
+    
+    elif p_bot_die.match(data['text']):
+    	numdie = 1
+    	dietype = -1
+    	rollinfo = str(data['text])
+    	rollinfo = re.sub("C(?i)himbot[\s]*roll[\s]*me[\s]*", '', rollinfo)
+    	outputs.append([data['channel'], "You input: " + rollinfo])
+    	
     
     elif p_bot_image.match(data['text']):
     	global googleapikey
