@@ -85,7 +85,7 @@ def process_message(data):
     	rollinfo = re.sub("C(?i)himbot[\s]*roll[\s]*me[\s]*", '', rollinfo)
     	outputs.append([data['channel'], "You input: " + rollinfo])
     	if re.match("\dd(?i)(\d|\d\d|\d\d\d|\%|f(?i)duge)"):
-    		outputs.append(data['channel'], "Valid"
+    		outputs.append(data['channel'], "Valid")
     	else:
     		outputs.append(data['channel'], "Invalid"
     	
