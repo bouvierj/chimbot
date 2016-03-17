@@ -98,7 +98,7 @@ def process_message(data):
     			numdie = int(numdie)
     			dietype = int(dietype)
     			for x in range (1, numdie):
-    				result = result+random.randint(1, dietype) (x)
+    				result += random.randint(1, dietype)
     			outputs.append([data['channel'], result])
     	elif re.match("d(?i)(\d|\d\d|\d\d\d|\%|f(?i)udge)", rollinfo):
     		rollinfo = "1" + rollinfo
