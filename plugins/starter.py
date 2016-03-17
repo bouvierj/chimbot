@@ -84,25 +84,12 @@ def process_message(data):
     	dietype = -1
     	rollinfo = str(data['text'])
     	rollinfo = re.sub("C(?i)himbot[\s]*roll[\s]*me[\s]*", '', rollinfo)
-    	if re.match(r"(\d|\d\d|\d\d\d)d(?i)(\d|\d\d|\d\d\d|f(?i)udge$)", rollinfo):
+    	if re.match(r"\d*d(?i)(\d*|f(?i)udge$)", rollinfo):
     		numdie = re.sub("d(?i)(\d\d\d|\d\d|\d|f(?i)udge)", '', rollinfo)
     		dietype = re.sub("(\d|\d\d|\d\d\d)d(?i)", '', rollinfo)
     		if re.match("(\d|\d\d|\d\d\d)d(?i)f(?i)udge", rollinfo):
     			outputs.append([data['channel'], "This Functionality Coming Soon"])
     	
-    		else:
-    			result = 0
-    			numdie = int(numdie)
-    			dietype = int(dietype)
-    			for x in range (numdie):
-    				result += random.randint(1, dietype)
-    			outputs.append([data['channel'], str(result)])
-    	elif re.match(r"d(?i)(\d|\d\d|\d\d\d|f(?i)udge$)", rollinfo):
-    		rollinfo = "1" + rollinfo
-    		numdie = re.sub("d(?i)(\d\d\d|\d\d|\d|f(?i)udge)", '', rollinfo)
-    		dietype = re.sub("(\d|\d\d|\d\d\d)d(?i)", '', rollinfo)
-    		if re.match("(\d|\d\d|\d\d\d)d(?i)f(?i)udge", rollinfo):
-    			outputs.append([data['channel'], "This Functionality Coming Soon"])
     		else:
     			result = 0
     			numdie = int(numdie)
