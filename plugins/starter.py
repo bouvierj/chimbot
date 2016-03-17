@@ -13,7 +13,7 @@ typing_sleep = 0
 googleapikey = None
 
 greetings = ['Hi friend!', 'Hello there.', 'Howdy!', 'Wazzzup!!!', 'Hi!', 'Hey.']
-help_text = "{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}".format(
+help_text = "{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}".format(
     "I will respond to the following messages: ",
     "`chimbot hi` for a random greeting.",
     "`chimbot joke` for a question, typing indicator, then answer style joke.",
@@ -21,6 +21,7 @@ help_text = "{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}".format(
     "`@<your bot's name>` to demonstrate detecting a mention.",
     "`chimbot image me <something>` to pop up a random image for your query.",
     "`chimbot call the soul` to get a random CtS draw.",
+    "`chimbot roll me xdxx to get a random dice roll.",
     "`chimbot help` to see this again.")
 
 # regular expression patterns for string matching
@@ -83,11 +84,11 @@ def process_message(data):
     	dietype = -1
     	rollinfo = str(data['text'])
     	rollinfo = re.sub("C(?i)himbot[\s]*roll[\s]*me[\s]*", '', rollinfo)
-    	if re.match("\dd(?i)(\d|\d\d|\d\d\d|\%|f(?i)udge)", rollinfo):
+    	if re.match("(\d|\d\d|\d\d\d)d(?i)(\d|\d\d|\d\d\d|\%|f(?i)udge)", rollinfo):
     		outputs.append([data['channel'], "Valid"])
     	elif re.match("d(?i)(\d|\d\d|\d\d\d|\%|f(?i)udge)", rollinfo):
     		rollinfo = "1" + rollinfo
-    		outputs.append([data['channel'], "Valid1"])
+    		outputs.append([data['channel'], "Valid"])
     	else:
     		outputs.append([data['channel'], "Invalid"])
     	outputs.append([data['channel'], "You input: " + rollinfo])
