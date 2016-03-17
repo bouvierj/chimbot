@@ -84,10 +84,10 @@ def process_message(data):
     	dietype = -1
     	rollinfo = str(data['text'])
     	rollinfo = re.sub("C(?i)himbot[\s]*roll[\s]*me[\s]*", '', rollinfo)
-    	if re.match("(\d|\d\d|\d\d\d)d(?i)(\d|\d\d|\d\d\d|\%|f(?i)udge)", rollinfo):
+    	if re.match("(\d|\d\d|\d\d\d)d(?i)(\d|\d\d|\d\d\d|f(?i)udge)", rollinfo):
     		outputs.append([data['channel'], "Valid"])
     		outputs.append([data['channel'], "You input: " + rollinfo])
-    		numdie = re.sub("d(?i)(\d\d\d|\d\d|\d|\%|f(?i)udge)", '', rollinfo)
+    		numdie = re.sub("d(?i)(\d\d\d|\d\d|\d|f(?i)udge)", '', rollinfo)
     		dietype = re.sub("(\d|\d\d|\d\d\d)d(?i)", '', rollinfo)
 
     			
@@ -97,8 +97,6 @@ def process_message(data):
     			outputs.append([data['channel'], "This Functionality Coming Soon"])
     	
     		else:
-    			if re.match("(\d|\d\d|\d\d\d)d(?i)\%", rollinfo):
-    				dietype == "100"
     			outputs.append([data['channel'], "This is functional!"])
     			result = 0
     			numdie = int(numdie)
@@ -106,21 +104,19 @@ def process_message(data):
     			for x in range (numdie):
     				result += random.randint(1, dietype)
     			outputs.append([data['channel'], str(result)])
-    	elif re.match("d(?i)(\d|\d\d|\d\d\d|\%|f(?i)udge)", rollinfo):
+    	elif re.match("d(?i)(\d|\d\d|\d\d\d|f(?i)udge)", rollinfo):
     		rollinfo = "1" + rollinfo
      		outputs.append([data['channel'], "Valid"])
     		outputs.append([data['channel'], "You input: " + rollinfo])
-    		numdie = re.sub("d(?i)(\d\d\d|\d\d|\d|\%|f(?i)udge)", '', rollinfo)
+    		numdie = re.sub("d(?i)(\d\d\d|\d\d|\d|f(?i)udge)", '', rollinfo)
     		dietype = re.sub("(\d|\d\d|\d\d\d)d(?i)", '', rollinfo)
-    		if re.match("(\d|\d\d|\d\d\d)d(?i)\%", rollinfo):
-    			dietype == "100"
+
     			
     		outputs.append([data['channel'], "Number:" + numdie + "   |   Die Type:" + dietype])
     		if re.match("(\d|\d\d|\d\d\d)d(?i)f(?i)udge", rollinfo):
     			outputs.append([data['channel'], "This Functionality Coming Soon"])
     		else:
-    			if re.match("(\d|\d\d|\d\d\d)d(?i)\%", rollinfo):
-    				dietype == "100"
+
     			outputs.append([data['channel'], "This is functional!"])
     			result = 0
     			numdie = int(numdie)
