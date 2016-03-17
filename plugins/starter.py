@@ -84,10 +84,10 @@ def process_message(data):
     	dietype = -1
     	rollinfo = str(data['text'])
     	rollinfo = re.sub("C(?i)himbot[\s]*roll[\s]*me[\s]*", '', rollinfo)
-    	if re.match(r"\d*d(?i)(\d*|f(?i)udge$)", rollinfo):
-    		numdie = re.sub("d(?i)(\d\d\d|\d\d|\d|f(?i)udge)", '', rollinfo)
-    		dietype = re.sub("(\d|\d\d|\d\d\d)d(?i)", '', rollinfo)
-    		if re.match("(\d|\d\d|\d\d\d)d(?i)f(?i)udge", rollinfo):
+    	if re.match(r"\d*d(?i)(\d+|f(?i)udge)$", rollinfo):
+    		numdie = re.sub("d(?i)(\d+|f(?i)udge)", '', rollinfo)
+    		dietype = re.sub("\d*d(?i)", '', rollinfo)
+    		if re.match("\d*d(?i)f(?i)udge", rollinfo):
     			outputs.append([data['channel'], "This Functionality Coming Soon"])
     	
     		else:
