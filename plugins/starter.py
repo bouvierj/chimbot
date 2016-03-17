@@ -87,10 +87,6 @@ def process_message(data):
     	if re.match("(\d|\d\d|\d\d\d)d(?i)(\d|\d\d|\d\d\d|f(?i)udge)", rollinfo):
     		numdie = re.sub("d(?i)(\d\d\d|\d\d|\d|f(?i)udge)", '', rollinfo)
     		dietype = re.sub("(\d|\d\d|\d\d\d)d(?i)", '', rollinfo)
-
-    			
-    		outputs.append([data['channel'], "Number:" + numdie + "   |   Die Type:" + dietype])
-    		
     		if re.match("(\d|\d\d|\d\d\d)d(?i)f(?i)udge", rollinfo):
     			outputs.append([data['channel'], "This Functionality Coming Soon"])
     	
