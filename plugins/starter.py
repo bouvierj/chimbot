@@ -89,8 +89,7 @@ def process_message(data):
     		outputs.append([data['channel'], "You input: " + rollinfo])
     		numdie = re.sub("d(?i)(\d\d\d|\d\d|\d|\%|f(?i)udge)", '', rollinfo)
     		dietype = re.sub("(\d|\d\d|\d\d\d)d(?i)", '', rollinfo)
-    		if re.match("(\d|\d\d|\d\d\d)d(?i)\%", rollinfo):
-    			dietype == "100"
+
     			
     		outputs.append([data['channel'], "Number:" + numdie + "   |   Die Type:" + dietype])
     		
@@ -98,6 +97,8 @@ def process_message(data):
     			outputs.append([data['channel'], "This Functionality Coming Soon"])
     	
     		else:
+    			if re.match("(\d|\d\d|\d\d\d)d(?i)\%", rollinfo):
+    				dietype == "100"
     			outputs.append([data['channel'], "This is functional!"])
     			result = 0
     			numdie = int(numdie)
@@ -118,6 +119,8 @@ def process_message(data):
     		if re.match("(\d|\d\d|\d\d\d)d(?i)f(?i)udge", rollinfo):
     			outputs.append([data['channel'], "This Functionality Coming Soon"])
     		else:
+    			if re.match("(\d|\d\d|\d\d\d)d(?i)\%", rollinfo):
+    				dietype == "100"
     			outputs.append([data['channel'], "This is functional!"])
     			result = 0
     			numdie = int(numdie)
