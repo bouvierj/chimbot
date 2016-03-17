@@ -94,7 +94,7 @@ def process_message(data):
     	outputs.append([data['channel'], "You input: " + rollinfo])
     	numdie = re.sub("d(?i)(\d|\d\d|\d\d\d|\%|f(?i)udge)", '', rollinfo)
     	dietype = re.sub("(\d|\d\d|\d\d\d)d(?i)", '', rollinfo)
-    	outputs.append([data['channel'], "Number:" + numdie + "Die Type:" + dietype])
+    	outputs.append([data['channel'], "Number:" + numdie + "   |Die Type:" + dietype])
     
     elif p_bot_image.match(data['text']):
     	global googleapikey
