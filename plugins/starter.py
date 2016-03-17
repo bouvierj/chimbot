@@ -86,15 +86,29 @@ def process_message(data):
     	rollinfo = re.sub("C(?i)himbot[\s]*roll[\s]*me[\s]*", '', rollinfo)
     	if re.match("(\d|\d\d|\d\d\d)d(?i)(\d|\d\d|\d\d\d|\%|f(?i)udge)", rollinfo):
     		outputs.append([data['channel'], "Valid"])
+    		outputs.append([data['channel'], "You input: " + rollinfo])
+    		numdie = re.sub("d(?i)(\d\d\d|\d\d|\d|\%|f(?i)udge)", '', rollinfo)
+    		dietype = re.sub("(\d|\d\d|\d\d\d)d(?i)", '', rollinfo)
+    		outputs.append([data['channel'], "Number:" + numdie + "   |   Die Type:" + dietype])
+    		if re.match("(\d|\d\d|\d\d\d)d(?i)f(?i)udge", rollinfo):
+    			outputs.append([data['channel'], "This Functionality Coming Soon"])
+    		else:
+    			result = 0
+    			numdie = int(numdie)
+    			dietype = int(dietype)
+    			for x in range (1, numdie):
+    				result = result + random.randint(1, dietype) (x)
+    			outputs.append([data['channel'], result])
     	elif re.match("d(?i)(\d|\d\d|\d\d\d|\%|f(?i)udge)", rollinfo):
     		rollinfo = "1" + rollinfo
     		outputs.append([data['channel'], "Valid"])
+    		outputs.append([data['channel'], "You input: " + rollinfo])
+    		numdie = re.sub("d(?i)(\d\d\d|\d\d|\d|\%|f(?i)udge)", '', rollinfo)
+    		dietype = re.sub("(\d|\d\d|\d\d\d)d(?i)", '', rollinfo)
+    		outputs.append([data['channel'], "Number:" + numdie + "   |   Die Type:" + dietype])
     	else:
     		outputs.append([data['channel'], "Invalid"])
-    	outputs.append([data['channel'], "You input: " + rollinfo])
-    	numdie = re.sub("d(?i)(\d\d\d|\d\d|\d|\%|f(?i)udge)", '', rollinfo)
-    	dietype = re.sub("(\d|\d\d|\d\d\d)d(?i)", '', rollinfo)
-    	outputs.append([data['channel'], "Number:" + numdie + "   |   Die Type:" + dietype])
+    	
     
     elif p_bot_image.match(data['text']):
     	global googleapikey
