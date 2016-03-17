@@ -93,6 +93,7 @@ def process_message(data):
     		if re.match("(\d|\d\d|\d\d\d)d(?i)f(?i)udge", rollinfo):
     			outputs.append([data['channel'], "This Functionality Coming Soon"])
     		else:
+    			outputs.append([data['channel'], "This is functional!"])
     			result = 0
     			numdie = int(numdie)
     			dietype = int(dietype)
