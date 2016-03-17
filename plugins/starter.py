@@ -83,12 +83,14 @@ def process_message(data):
     	dietype = -1
     	rollinfo = str(data['text'])
     	rollinfo = re.sub("C(?i)himbot[\s]*roll[\s]*me[\s]*", '', rollinfo)
-    	outputs.append([data['channel'], "You input: " + rollinfo])
-    	if re.match("(\d|'')d(?i)(\d|\d\d|\d\d\d|\%|f(?i)udge)", rollinfo):
+    	if re.match("\dd(?i)(\d|\d\d|\d\d\d|\%|f(?i)udge)", rollinfo):
     		outputs.append([data['channel'], "Valid"])
+    	elif re.match("d(?i)(\d|\d\d|\d\d\d|\%|f(?i)udge)", rollinfo):
+    		rollinfo = "1" + rollinfo
+    		outputs.append([data['channel'], "Valid1"])
     	else:
     		outputs.append([data['channel'], "Invalid"])
-    	
+    	outputs.append([data['channel'], "You input: " + rollinfo])
     
     elif p_bot_image.match(data['text']):
     	global googleapikey
