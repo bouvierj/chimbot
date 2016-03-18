@@ -94,7 +94,7 @@ def process_message(data):
     			numdie = int(numdie)
     			stringresults = ''
     			if numdie > 3700:
-    				outputs.append([data['channel'], "Invalid"])
+    				outputs.append([data['channel'], "Invalid, dfudge only works with values <=3700. Why do you need so many fudge dice?"])
     				return
     			for x in range (numdie):
     				die = random.randint(-1, 1)
