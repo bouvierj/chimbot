@@ -93,6 +93,9 @@ def process_message(data):
     			result = 0
     			numdie = int(numdie)
     			stringresults = ''
+    			if numdie > 3700:
+    				outputs.append([data['channel'], "Invalid"])
+    				return
     			for x in range (numdie):
     				die = random.randint(-1, 1)
     				if die == -1:
