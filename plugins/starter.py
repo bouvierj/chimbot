@@ -98,12 +98,13 @@ def process_message(data):
     				if die == -1:
     					stringresults = stringresults + " [-]"
     				elif die == 0:
-    					stringresults = stringresults + " [ ]"
+    					stringresults = stringresults + " [  ]"
     				else:
     					stringresults = stringresults + " [+]"
     				result += die
     				
     			outputs.append([data['channel'], stringresults])
+    			outputs.append([data['channel'], str(result)])
     	
     		else:
     			result = 0
