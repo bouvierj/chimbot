@@ -90,7 +90,20 @@ def process_message(data):
     			numdie = "1"
     		dietype = re.sub("\d*d(?i)", '', rollinfo)
     		if re.match("\d*d(?i)f(?i)udge", rollinfo):
-    			outputs.append([data['channel'], "This Functionality Coming Soon"])
+    			result = 0
+    			numdie = int(numdie)
+    			stringresults = ''
+    			for x in range (numdie):
+    				die = random.randint(-1, 1)
+    				if die == -1:
+    					stringresults = stringresults + " [-]"
+    				elif die == 0:
+    					stringresults = stringresults + " [ ]"
+    				else:
+    					stringresults = stringresults + " [+]"
+    				result += die
+    				
+    			outputs.append([data['channel'], stringresults])
     	
     		else:
     			result = 0
