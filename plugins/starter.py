@@ -85,7 +85,7 @@ def process_message(data):
     	rollinfo = str(data['text'])
     	rollinfo = re.sub("C(?i)himbot[\s]*roll[\s]*me[\s]*", '', rollinfo)
     	if re.match(r"\d*d(?i)(\d+|f(?i)udge|f(?i)ate)$", rollinfo):
-    		numdie = re.sub("d(?i)(\d+|f(?i)udge)", '', rollinfo)
+    		numdie = re.sub("d(?i)(\d+|f(?i)udge|f(?i)ate)", '', rollinfo)
     		if numdie == '':
     			numdie = "1"
     		dietype = re.sub("\d*d(?i)", '', rollinfo)
