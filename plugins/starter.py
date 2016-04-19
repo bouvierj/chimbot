@@ -145,7 +145,7 @@ def process_message(data):
         outputs.append([data['channel'], "Hello, I'm the chimbot.\n{}".format(help_text)])
     
     elif data['user'].startswith("U0KH7TRCG") and data['text'].startswith("Cool"):
-    	outpust.append([data['channel'], "Cool Cool Cool."])
+    	outputs.append([data['channel'], "Cool Cool Cool."])
 
 def process_mention(data):
     logging.debug("process_mention:data: {}".format(data))
