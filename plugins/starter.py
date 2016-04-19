@@ -145,7 +145,9 @@ def process_message(data):
     	message = str(data['text'])
     	messageinfo, sep, channel = message.partition('IN')
     	if channel != '':
-    		channelinfo = channel
+    		channelinfo = re.sub("^[\s]*", '', channel)
+    		outputs.append([data['channel'], channelinfo])
+    	
     	messageinfo = re.sub("C(?i)himbot[\s]*say[\s]*", '', messageinfo)
     	outputs.append([channelinfo, messageinfo])
     	
