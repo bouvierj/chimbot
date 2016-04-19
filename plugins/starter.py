@@ -145,7 +145,7 @@ def process_message(data):
     elif data['channel'].startswith("D"):  # direct message channel to the bot
         outputs.append([data['channel'], "Hello, I'm the chimbot.\n{}".format(help_text)])
     
-    elif data['user'].startswith("U0KH7TRCG") and data['text'].find("Cool") >= 0:
+    elif data['user'].startswith("U0KH7TRCG") and data['text'].find("Cool") != -1:
     	outputs.append([data['channel'], "Cool Cool Cool."])
 
 def process_mention(data):
