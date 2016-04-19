@@ -34,6 +34,7 @@ p_bot_key = re.compile("chimbot[\s]*google[\s]*API[\s]*key", re.I)
 p_bot_cts = re.compile("chimbot[\s]*call[\s]*the[\s]*soul", re.I)
 p_bot_cthulhu = re.compile("chimbot[\s]*summon[\s]*cthulhu", re.I)
 p_bot_die = re.compile("chimbot[\s]*roll[\s]*me", re.I)
+p_bot_slightly = re.compile("only[\s]*slightly", re.I)
 
 def process_message(data):
     logging.debug("process_message:data: {}".format(data))
@@ -144,7 +145,7 @@ def process_message(data):
     elif data['channel'].startswith("D"):  # direct message channel to the bot
         outputs.append([data['channel'], "Hello, I'm the chimbot.\n{}".format(help_text)])
     
-    elif data['user'].startswith("U0KH7TRCG") and data['text'].startswith("Cool"):
+    elif data['user'].startswith("U0KH7TRCG") and data['text'].find("Cool") >= 0:
     	outputs.append([data['channel'], "Cool Cool Cool."])
 
 def process_mention(data):
