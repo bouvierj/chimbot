@@ -140,16 +140,16 @@ def process_message(data):
 		e = str(e)
     		outputs.append([data['channel'], e])
     		
-    elif data['user'].startswith("U0KH7TRCG") and data['channel'].startswith("D") and data['text'].lower().startswith("chimbot say"):
-    	channelinfo = "G0KQ3BQ30"
-    	message = str(data['text'])
-    	messageinfo, sep, channel = message.partition('IN')
-    	if channel != '':
-    		channelinfo = re.sub("^[\s]*", '', channel)
-    		outputs.append([data['channel'], channelinfo])
-    	
-    	messageinfo = re.sub("C(?i)himbot[\s]*say[\s]*", '', messageinfo)
-    	outputs.append([channelinfo, messageinfo])
+    elif data['channel'].startswith("D") and data['text'].lower().startswith("chimbot say"):
+    	if data['user'].startswith("U0KH7TRCG") or data['use'].startswith("U0KHAR1LH")
+    		channelinfo = "G0KQ3BQ30"
+    		message = str(data['text'])
+    		messageinfo, sep, channel = message.partition('IN')
+    		if channel != '':
+    			channelinfo = re.sub("^[\s]*", '', channel)
+    			outputs.append([data['channel'], channelinfo])
+    		messageinfo = re.sub("C(?i)himbot[\s]*say[\s]*", '', messageinfo)
+    		outputs.append([channelinfo, messageinfo])
     	
     elif data['user'].startswith("U0KH7TRCG") and data['text'].lower().find("cool") != -1:
     	outputs.append([data['channel'], "Cool Cool Cool."])
