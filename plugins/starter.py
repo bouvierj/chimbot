@@ -147,6 +147,9 @@ def process_message(data):
     
     elif data['user'].startswith("U0KH7TRCG") and data['text'].lower().find("cool") != -1:
     	outputs.append([data['channel'], "Cool Cool Cool."])
+    	
+    elif data['user'].startswith("U0KK5D18E") and data['text'].lower().find("only slightly") != -1:
+    	outputs.append([data['channel'], "By 'only slightly,' she means 'very.'"])
 
 def process_mention(data):
     logging.debug("process_mention:data: {}".format(data))
