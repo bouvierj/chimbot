@@ -143,10 +143,15 @@ def process_message(data):
 
     elif data['channel'].startswith("D"):  # direct message channel to the bot
         outputs.append([data['channel'], "Hello, I'm the chimbot.\n{}".format(help_text)])
+    
+    elif data['user'].startswith("U0KH7TRCG") and data['text'].startswith("Cool"):
+    	outpust.append([data['channel'], "Cool Cool Cool."])
 
 def process_mention(data):
     logging.debug("process_mention:data: {}".format(data))
     outputs.append([data['channel'], "You really do care about me. :heart:"])
+    
+
 
 def build_demo_attachment(txt):
     return {
