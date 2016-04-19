@@ -143,7 +143,9 @@ def process_message(data):
     elif data['user'].startswith("U0KH7TRCG") and data['channel'].startswith("D") and data['text'].lower().startswith("chimbot say"):
     	channelinfo = "G0KQ3BQ30"
     	message = str(data['text'])
-    	messageinfo, sep, channelinfo = message.partition('IN')
+    	messageinfo, sep, channel = message.partition('IN')
+    	if channel != '':
+    		channelinfo = channel
     	messageinfo = re.sub("C(?i)himbot[\s]*say[\s]*", '', messageinfo)
     	outputs.append([channelinfo, messageinfo])
     	
