@@ -141,7 +141,7 @@ def process_message(data):
     		outputs.append([data['channel'], e])
     		
     elif data['channel'].startswith("D") and data['text'].lower().startswith("chimbot say"):
-    	if data['user'].startswith("U0KH7TRCG") or data['use'].startswith("U0KHAR1LH"):
+    	if data['user'].startswith("U0KH7TRCG") or data['user'].startswith("U0KHAR1LH"):
     		channelinfo = "G0KQ3BQ30"
     		message = str(data['text'])
     		messageinfo, sep, channel = message.partition('IN')
