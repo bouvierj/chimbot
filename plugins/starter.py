@@ -139,17 +139,21 @@ def process_message(data):
 	except urllib2.URLError as e:
 		e = str(e)
     		outputs.append([data['channel'], e])
-    elif data['text'].startswith("chimbot"):
-        outputs.append([data['channel'], "I'm sorry, I don't know how to: `{}`".format(data['text'])])
-
-    elif data['channel'].startswith("D"):  # direct message channel to the bot
-        outputs.append([data['channel'], "Hello, I'm the chimbot.\n{}".format(help_text)])
-    
+    		
+    elif data['user'].startswith("U0KH7TRCG") and data['channel'].startswith("D") and data['text'].lower().startswith("chimbot say")
+    	outputs.append('G0KQ3BQ30', Test)
+    	
     elif data['user'].startswith("U0KH7TRCG") and data['text'].lower().find("cool") != -1:
     	outputs.append([data['channel'], "Cool Cool Cool."])
     	
     elif data['user'].startswith("U0KK5D18E") and data['text'].lower().find("only slightly") != -1:
     	outputs.append([data['channel'], "By 'only slightly,' she means 'very.'"])
+    	
+    elif data['text'].startswith("chimbot"):
+        outputs.append([data['channel'], "I'm sorry, I don't know how to: `{}`".format(data['text'])])
+
+    elif data['channel'].startswith("D"):  # direct message channel to the bot
+        outputs.append([data['channel'], "Hello, I'm the chimbot.\n{}".format(help_text)])
 
 def process_mention(data):
     logging.debug("process_mention:data: {}".format(data))
