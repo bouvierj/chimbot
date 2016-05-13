@@ -127,7 +127,7 @@ def process_message(data):
  	image = re.sub("C(?i)himbot[\s]*image[\s]*me[\s]*", '', image)
  	fetcher = urllib2.build_opener()
 	startIndex = str("0")
-	searchUrl = "https://www.googleapis.com/customsearch/v1?" + urllib.urlencode([("key", googleapikey), ("cx", "009488714636722478744:yz25mu3sy4y"), ("q", image), ("count", "1"), ("searchType", "image")])
+	searchUrl = "https://www.googleapis.com/customsearch/v1?" + urllib.urlencode([("key", googleapikey), ("cx", "009488714636722478744:yz25mu3sy4y"), ("q", image), ("count", "1"), ("searchType", "image"), ("safe", "high")])
 	f = None
 	try:
 		rand = random.randint(0,9)
